@@ -1,0 +1,4 @@
+# Project exclude paths
+/out/
+/protobuf-help-v2.iml
+/.idea/
