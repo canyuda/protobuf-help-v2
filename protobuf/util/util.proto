@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+option java_package = "com.test.proto.util";
+option java_outer_classname = "UtilProto";
+option objc_class_prefix = "GBP";
+
+message CMessage {
+    optional string error_message = 1;
+    optional string hint_message = 2;
+}

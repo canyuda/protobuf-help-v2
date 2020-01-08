@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+import "util/util.proto";
+
+option java_package = "com.test.proto.base";
+option java_outer_classname = "RespProto";
+option objc_class_prefix = "GBP";
+
+message BaseResponse {
+    optional int32 error_code = 1;
+    optional CMessage message = 2;
+}

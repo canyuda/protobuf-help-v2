@@ -12,4 +12,5 @@ public class Config {
     public static final String INPUT_FILE_PATH = "i";
     public static final String OUT_PUT_DIR_PATH = "o";
     public static final String GENERATE_TYPE = "t";
+    public static final String PROTOBUF_DIR_PATH = "p";
 }

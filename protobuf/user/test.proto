@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+import "base/resp.proto";
+
+option java_package = "com.test.proto";
+option java_outer_classname = "TestProto";
+option objc_class_prefix = "GPB";
+
+message TestItem {
+    optional int64 id = 1;
+    optional string media_id = 2;
+    optional int32 time_length = 3;
+}
+
+message TestItemResponse {
+    optional BaseResponse response = 1;
+    repeated TestItem audio_items = 2;
+}

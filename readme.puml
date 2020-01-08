@@ -1,0 +1,50 @@
+@startuml
+
+start
+
+: 读取参数
+- proto文件根目录
+- 输入文件
+- 输出目标目录
+- 输出类型
+;
+
+: 读取输入文件,获得需要编译的proto文件列表;
+
+: 与proto文件目录拼接成proto文件/目录具体路径, 开始遍历集合(队列);
+: Set集合记录集合内容;
+
+while (队列是否空了?)
+    if (是个文件?) then (是)
+        : 读取文件;
+        : 查找import;
+        if (import 指定的文件已经在Set集合中) then (是)
+            : 跳过处理;
+        else (不是)
+            : import内的文件进入集合(队列);
+            : 写入Set集合;
+        endif
+    else (是个目录)
+        : 获取目录下每一个文件路径;
+        if (import 指定的文件已经在Set集合中) then (是)
+            : 跳过处理;
+        else (不是)
+            : import内的文件进入集合(队列);
+            : 写入Set集合;
+        endif
+    endif
+    :出队;
+endwhile
+
+:最终获取到一个Set;
+:拼接并执行protoc命令, 命令如下
+protoc --proto_path={proto文件根目录} {输出类型对应的参数}={输出目标目录} {文件的相对路径信息(相对proto文件根目录)};
+
+:打印结果
+1. 刚刚生成了多少个文件
+2. 哪些未能正常生成
+;
+
+end
+
+@enduml
