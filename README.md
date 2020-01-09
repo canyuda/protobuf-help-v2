@@ -4,7 +4,7 @@
 
 
 ```bash
-java -jar protobuf-help-v2 -i ./input.txt -o ./src -t java -p ./protobuf
+java -jar ./protobuf-help-v2.jar -i ./input.txt -o ./dest -t java -p ./protobuf
 ```
 
 可选参数
