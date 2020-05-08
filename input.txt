@@ -1,1 +1,4 @@
 user/test.proto
+!^ignore/\S*proto$
+#test
+!ignore_two/ignore_test_two.proto

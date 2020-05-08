@@ -1,6 +1,7 @@
 syntax = "proto2";
 
 import "util/util.proto";
+import "ignore_two/ignore_test_two.proto";
 
 option java_package = "com.test.proto.base";
 option java_outer_classname = "RespProto";
@@ -9,4 +10,5 @@ option objc_class_prefix = "GBP";
 message BaseResponse {
     optional int32 error_code = 1;
     optional CMessage message = 2;
+    optional IgnoreTwoTest test_two = 3;
 }

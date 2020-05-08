@@ -1,6 +1,7 @@
 syntax = "proto2";
 
 import "base/resp.proto";
+import "ignore/ignore_test.proto";
 
 option java_package = "com.test.proto";
 option java_outer_classname = "TestProto";
@@ -15,4 +16,5 @@ message TestItem {
 message TestItemResponse {
     optional BaseResponse response = 1;
     repeated TestItem audio_items = 2;
+    repeated IgnoreTest ignore_test = 3;
 }

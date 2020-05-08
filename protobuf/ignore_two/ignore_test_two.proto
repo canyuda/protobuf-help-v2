@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+option java_package = "com.test.proto.ignoreTwo";
+option java_outer_classname = "IgnoreTestTwoProto";
+option objc_class_prefix = "GPB";
+
+message IgnoreTwoTest {
+    optional int64 id = 1;
+    optional string media_id = 2;
+    optional int32 time_length = 3;
+}

@@ -676,6 +676,30 @@ public final class TestProto {
      */
     com.test.proto.TestProto.TestItemOrBuilder getAudioItemsOrBuilder(
         int index);
+
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest> 
+        getIgnoreTestList();
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    com.test.proto.ignore.IgnoreTestProto.IgnoreTest getIgnoreTest(int index);
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    int getIgnoreTestCount();
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    java.util.List<? extends com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder> 
+        getIgnoreTestOrBuilderList();
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder getIgnoreTestOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code TestItemResponse}
@@ -690,6 +714,7 @@ public final class TestProto {
     }
     private TestItemResponse() {
       audioItems_ = java.util.Collections.emptyList();
+      ignoreTest_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -740,6 +765,14 @@ public final class TestProto {
               audioItems_.add(input.readMessage(com.test.proto.TestProto.TestItem.PARSER, extensionRegistry));
               break;
             }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                ignoreTest_ = new java.util.ArrayList<com.test.proto.ignore.IgnoreTestProto.IgnoreTest>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              ignoreTest_.add(input.readMessage(com.test.proto.ignore.IgnoreTestProto.IgnoreTest.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -751,6 +784,9 @@ public final class TestProto {
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           audioItems_ = java.util.Collections.unmodifiableList(audioItems_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          ignoreTest_ = java.util.Collections.unmodifiableList(ignoreTest_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -825,6 +861,41 @@ public final class TestProto {
       return audioItems_.get(index);
     }
 
+    public static final int IGNORE_TEST_FIELD_NUMBER = 3;
+    private java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest> ignoreTest_;
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    public java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest> getIgnoreTestList() {
+      return ignoreTest_;
+    }
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    public java.util.List<? extends com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder> 
+        getIgnoreTestOrBuilderList() {
+      return ignoreTest_;
+    }
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    public int getIgnoreTestCount() {
+      return ignoreTest_.size();
+    }
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    public com.test.proto.ignore.IgnoreTestProto.IgnoreTest getIgnoreTest(int index) {
+      return ignoreTest_.get(index);
+    }
+    /**
+     * <code>repeated .IgnoreTest ignore_test = 3;</code>
+     */
+    public com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder getIgnoreTestOrBuilder(
+        int index) {
+      return ignoreTest_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -843,6 +914,9 @@ public final class TestProto {
       for (int i = 0; i < audioItems_.size(); i++) {
         output.writeMessage(2, audioItems_.get(i));
       }
+      for (int i = 0; i < ignoreTest_.size(); i++) {
+        output.writeMessage(3, ignoreTest_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -859,6 +933,10 @@ public final class TestProto {
       for (int i = 0; i < audioItems_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, audioItems_.get(i));
+      }
+      for (int i = 0; i < ignoreTest_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, ignoreTest_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSerializedSize = size;
@@ -970,6 +1048,7 @@ public final class TestProto {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getResponseFieldBuilder();
           getAudioItemsFieldBuilder();
+          getIgnoreTestFieldBuilder();
         }
       }
       public Builder clear() {
@@ -985,6 +1064,12 @@ public final class TestProto {
           bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           audioItemsBuilder_.clear();
+        }
+        if (ignoreTestBuilder_ == null) {
+          ignoreTest_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          ignoreTestBuilder_.clear();
         }
         return this;
       }
@@ -1026,6 +1111,15 @@ public final class TestProto {
           result.audioItems_ = audioItems_;
         } else {
           result.audioItems_ = audioItemsBuilder_.build();
+        }
+        if (ignoreTestBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            ignoreTest_ = java.util.Collections.unmodifiableList(ignoreTest_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.ignoreTest_ = ignoreTest_;
+        } else {
+          result.ignoreTest_ = ignoreTestBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1069,6 +1163,32 @@ public final class TestProto {
                    getAudioItemsFieldBuilder() : null;
             } else {
               audioItemsBuilder_.addAllMessages(other.audioItems_);
+            }
+          }
+        }
+        if (ignoreTestBuilder_ == null) {
+          if (!other.ignoreTest_.isEmpty()) {
+            if (ignoreTest_.isEmpty()) {
+              ignoreTest_ = other.ignoreTest_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureIgnoreTestIsMutable();
+              ignoreTest_.addAll(other.ignoreTest_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.ignoreTest_.isEmpty()) {
+            if (ignoreTestBuilder_.isEmpty()) {
+              ignoreTestBuilder_.dispose();
+              ignoreTestBuilder_ = null;
+              ignoreTest_ = other.ignoreTest_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              ignoreTestBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getIgnoreTestFieldBuilder() : null;
+            } else {
+              ignoreTestBuilder_.addAllMessages(other.ignoreTest_);
             }
           }
         }
@@ -1458,6 +1578,246 @@ public final class TestProto {
         return audioItemsBuilder_;
       }
 
+      private java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest> ignoreTest_ =
+        java.util.Collections.emptyList();
+      private void ensureIgnoreTestIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          ignoreTest_ = new java.util.ArrayList<com.test.proto.ignore.IgnoreTestProto.IgnoreTest>(ignoreTest_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.test.proto.ignore.IgnoreTestProto.IgnoreTest, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder, com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder> ignoreTestBuilder_;
+
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest> getIgnoreTestList() {
+        if (ignoreTestBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(ignoreTest_);
+        } else {
+          return ignoreTestBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public int getIgnoreTestCount() {
+        if (ignoreTestBuilder_ == null) {
+          return ignoreTest_.size();
+        } else {
+          return ignoreTestBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public com.test.proto.ignore.IgnoreTestProto.IgnoreTest getIgnoreTest(int index) {
+        if (ignoreTestBuilder_ == null) {
+          return ignoreTest_.get(index);
+        } else {
+          return ignoreTestBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder setIgnoreTest(
+          int index, com.test.proto.ignore.IgnoreTestProto.IgnoreTest value) {
+        if (ignoreTestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.set(index, value);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder setIgnoreTest(
+          int index, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder builderForValue) {
+        if (ignoreTestBuilder_ == null) {
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          ignoreTestBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder addIgnoreTest(com.test.proto.ignore.IgnoreTestProto.IgnoreTest value) {
+        if (ignoreTestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.add(value);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder addIgnoreTest(
+          int index, com.test.proto.ignore.IgnoreTestProto.IgnoreTest value) {
+        if (ignoreTestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.add(index, value);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder addIgnoreTest(
+          com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder builderForValue) {
+        if (ignoreTestBuilder_ == null) {
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.add(builderForValue.build());
+          onChanged();
+        } else {
+          ignoreTestBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder addIgnoreTest(
+          int index, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder builderForValue) {
+        if (ignoreTestBuilder_ == null) {
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          ignoreTestBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder addAllIgnoreTest(
+          java.lang.Iterable<? extends com.test.proto.ignore.IgnoreTestProto.IgnoreTest> values) {
+        if (ignoreTestBuilder_ == null) {
+          ensureIgnoreTestIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, ignoreTest_);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder clearIgnoreTest() {
+        if (ignoreTestBuilder_ == null) {
+          ignoreTest_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public Builder removeIgnoreTest(int index) {
+        if (ignoreTestBuilder_ == null) {
+          ensureIgnoreTestIsMutable();
+          ignoreTest_.remove(index);
+          onChanged();
+        } else {
+          ignoreTestBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder getIgnoreTestBuilder(
+          int index) {
+        return getIgnoreTestFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder getIgnoreTestOrBuilder(
+          int index) {
+        if (ignoreTestBuilder_ == null) {
+          return ignoreTest_.get(index);  } else {
+          return ignoreTestBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public java.util.List<? extends com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder> 
+           getIgnoreTestOrBuilderList() {
+        if (ignoreTestBuilder_ != null) {
+          return ignoreTestBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(ignoreTest_);
+        }
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder addIgnoreTestBuilder() {
+        return getIgnoreTestFieldBuilder().addBuilder(
+            com.test.proto.ignore.IgnoreTestProto.IgnoreTest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder addIgnoreTestBuilder(
+          int index) {
+        return getIgnoreTestFieldBuilder().addBuilder(
+            index, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .IgnoreTest ignore_test = 3;</code>
+       */
+      public java.util.List<com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder> 
+           getIgnoreTestBuilderList() {
+        return getIgnoreTestFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.test.proto.ignore.IgnoreTestProto.IgnoreTest, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder, com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder> 
+          getIgnoreTestFieldBuilder() {
+        if (ignoreTestBuilder_ == null) {
+          ignoreTestBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.test.proto.ignore.IgnoreTestProto.IgnoreTest, com.test.proto.ignore.IgnoreTestProto.IgnoreTest.Builder, com.test.proto.ignore.IgnoreTestProto.IgnoreTestOrBuilder>(
+                  ignoreTest_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          ignoreTest_ = null;
+        }
+        return ignoreTestBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:TestItemResponse)
     }
 
@@ -1520,12 +1880,13 @@ public final class TestProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017user/test.proto\032\017base/resp.proto\"=\n\010Te" +
-      "stItem\022\n\n\002id\030\001 \001(\003\022\020\n\010media_id\030\002 \001(\t\022\023\n\013" +
-      "time_length\030\003 \001(\005\"S\n\020TestItemResponse\022\037\n" +
-      "\010response\030\001 \001(\0132\r.BaseResponse\022\036\n\013audio_" +
-      "items\030\002 \003(\0132\t.TestItemB!\n\016com.test.proto" +
-      "B\tTestProto\242\002\003GPB"
+      "\n\017user/test.proto\032\017base/resp.proto\032\030igno" +
+      "re/ignore_test.proto\"=\n\010TestItem\022\n\n\002id\030\001" +
+      " \001(\003\022\020\n\010media_id\030\002 \001(\t\022\023\n\013time_length\030\003 " +
+      "\001(\005\"u\n\020TestItemResponse\022\037\n\010response\030\001 \001(" +
+      "\0132\r.BaseResponse\022\036\n\013audio_items\030\002 \003(\0132\t." +
+      "TestItem\022 \n\013ignore_test\030\003 \003(\0132\013.IgnoreTe" +
+      "stB!\n\016com.test.protoB\tTestProto\242\002\003GPB"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1539,6 +1900,7 @@ public final class TestProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.test.proto.base.RespProto.getDescriptor(),
+          com.test.proto.ignore.IgnoreTestProto.getDescriptor(),
         }, assigner);
     internal_static_TestItem_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -1551,8 +1913,9 @@ public final class TestProto {
     internal_static_TestItemResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_TestItemResponse_descriptor,
-        new java.lang.String[] { "Response", "AudioItems", });
+        new java.lang.String[] { "Response", "AudioItems", "IgnoreTest", });
     com.test.proto.base.RespProto.getDescriptor();
+    com.test.proto.ignore.IgnoreTestProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

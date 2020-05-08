@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+option java_package = "com.test.proto.ignore";
+option java_outer_classname = "IgnoreTestProto";
+option objc_class_prefix = "GPB";
+
+message IgnoreTest {
+    optional int64 id = 1;
+    optional string media_id = 2;
+    optional int32 time_length = 3;
+}

@@ -94,7 +94,14 @@ public class Main {
                     }
                     // 1. 读取 inputFilePath
                     System.out.println("开始读取input文件");
-                    Set<String> inputData = getInputData(inputFile);
+                    Set<String> inputDataAndExcludeData = getInputData(inputFile);
+                    // 需要导入的
+                    List<String> inputData = inputDataAndExcludeData.stream().filter(s -> !s.startsWith("!")).collect(Collectors.toList());
+                    // 需要排除的
+                    List<String> excludeData = inputDataAndExcludeData.stream()
+                            .filter(s -> s.startsWith("!"))
+                            .map(s -> s.replaceFirst("!", ""))
+                            .collect(Collectors.toList());
                     System.out.println("文件读取完毕, 输入任务数:" + inputData.size() + ", 开始计算依赖关系");
                     Stack<String> stack = new Stack<>();
                     stack.addAll(inputData);
@@ -110,12 +117,19 @@ public class Main {
                         }
                         if (file.isFile()) {
                             if (file.getName().endsWith(SOURCE_SUFFIX)) {
-                                List<String> list = getImportProto(file, importFindLimit);
-                                list.forEach(stack::push);
                                 if (!protoFileSet.contains(path)) {
-                                    protoFileSet.add(path);
-                                    if (isDebug) {
-                                        System.out.println("文件: " + path + ", 处理完成, 文件依赖数:" + list.size());
+                                    // 判断是否忽略
+                                    if (allowAddProtoFileSet(excludeData, path)) {
+                                        List<String> list = getImportProto(file, importFindLimit);
+                                        list.forEach(stack::push);
+                                        protoFileSet.add(path);
+                                        if (isDebug) {
+                                            System.out.println("文件: " + path + ", 处理完成, 文件依赖数:" + list.size());
+                                        }
+                                    } else {
+                                        if (isDebug) {
+                                            System.out.println("文件: " + path + ", 存在忽略名单内, 不生成文件");
+                                        }
                                     }
                                 }
                             } else if (IGNORE_FILE.stream().anyMatch(path::contains)) {
@@ -151,6 +165,15 @@ public class Main {
             e.printStackTrace();
             System.err.println("处理失败");
         }
+    }
+
+    /**
+     * @param excludeData 忽略名单 前缀
+     * @param path        需要校验的文件路径
+     * @return
+     */
+    private static boolean allowAddProtoFileSet(List<String> excludeData, String path) {
+        return excludeData.stream().noneMatch(path::matches);
     }
 
     /**

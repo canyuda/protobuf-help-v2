@@ -33,6 +33,19 @@ public final class RespProto {
      * <code>optional .CMessage message = 2;</code>
      */
     com.test.proto.util.UtilProto.CMessageOrBuilder getMessageOrBuilder();
+
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    boolean hasTestTwo();
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest getTestTwo();
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder getTestTwoOrBuilder();
   }
   /**
    * Protobuf type {@code BaseResponse}
@@ -92,6 +105,19 @@ public final class RespProto {
                 message_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = testTwo_.toBuilder();
+              }
+              testTwo_ = input.readMessage(com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(testTwo_);
+                testTwo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
               break;
             }
           }
@@ -156,6 +182,27 @@ public final class RespProto {
       return message_ == null ? com.test.proto.util.UtilProto.CMessage.getDefaultInstance() : message_;
     }
 
+    public static final int TEST_TWO_FIELD_NUMBER = 3;
+    private com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest testTwo_;
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    public boolean hasTestTwo() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    public com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest getTestTwo() {
+      return testTwo_ == null ? com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.getDefaultInstance() : testTwo_;
+    }
+    /**
+     * <code>optional .IgnoreTwoTest test_two = 3;</code>
+     */
+    public com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder getTestTwoOrBuilder() {
+      return testTwo_ == null ? com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.getDefaultInstance() : testTwo_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -174,6 +221,9 @@ public final class RespProto {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getMessage());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getTestTwo());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -190,6 +240,10 @@ public final class RespProto {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMessage());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getTestTwo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSerializedSize = size;
@@ -300,6 +354,7 @@ public final class RespProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getMessageFieldBuilder();
+          getTestTwoFieldBuilder();
         }
       }
       public Builder clear() {
@@ -312,6 +367,12 @@ public final class RespProto {
           messageBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (testTwoBuilder_ == null) {
+          testTwo_ = null;
+        } else {
+          testTwoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -348,6 +409,14 @@ public final class RespProto {
         } else {
           result.message_ = messageBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (testTwoBuilder_ == null) {
+          result.testTwo_ = testTwo_;
+        } else {
+          result.testTwo_ = testTwoBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -369,6 +438,9 @@ public final class RespProto {
         }
         if (other.hasMessage()) {
           mergeMessage(other.getMessage());
+        }
+        if (other.hasTestTwo()) {
+          mergeTestTwo(other.getTestTwo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -548,6 +620,124 @@ public final class RespProto {
         return messageBuilder_;
       }
 
+      private com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest testTwo_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder> testTwoBuilder_;
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public boolean hasTestTwo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest getTestTwo() {
+        if (testTwoBuilder_ == null) {
+          return testTwo_ == null ? com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.getDefaultInstance() : testTwo_;
+        } else {
+          return testTwoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public Builder setTestTwo(com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest value) {
+        if (testTwoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          testTwo_ = value;
+          onChanged();
+        } else {
+          testTwoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public Builder setTestTwo(
+          com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder builderForValue) {
+        if (testTwoBuilder_ == null) {
+          testTwo_ = builderForValue.build();
+          onChanged();
+        } else {
+          testTwoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public Builder mergeTestTwo(com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest value) {
+        if (testTwoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              testTwo_ != null &&
+              testTwo_ != com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.getDefaultInstance()) {
+            testTwo_ =
+              com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.newBuilder(testTwo_).mergeFrom(value).buildPartial();
+          } else {
+            testTwo_ = value;
+          }
+          onChanged();
+        } else {
+          testTwoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public Builder clearTestTwo() {
+        if (testTwoBuilder_ == null) {
+          testTwo_ = null;
+          onChanged();
+        } else {
+          testTwoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder getTestTwoBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getTestTwoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      public com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder getTestTwoOrBuilder() {
+        if (testTwoBuilder_ != null) {
+          return testTwoBuilder_.getMessageOrBuilder();
+        } else {
+          return testTwo_ == null ?
+              com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.getDefaultInstance() : testTwo_;
+        }
+      }
+      /**
+       * <code>optional .IgnoreTwoTest test_two = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder> 
+          getTestTwoFieldBuilder() {
+        if (testTwoBuilder_ == null) {
+          testTwoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTest.Builder, com.test.proto.ignoreTwo.IgnoreTestTwoProto.IgnoreTwoTestOrBuilder>(
+                  getTestTwo(),
+                  getParentForChildren(),
+                  isClean());
+          testTwo_ = null;
+        }
+        return testTwoBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:BaseResponse)
     }
 
@@ -605,10 +795,12 @@ public final class RespProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017base/resp.proto\032\017util/util.proto\">\n\014Ba" +
-      "seResponse\022\022\n\nerror_code\030\001 \001(\005\022\032\n\007messag" +
-      "e\030\002 \001(\0132\t.CMessageB&\n\023com.test.proto.bas" +
-      "eB\tRespProto\242\002\003GBP"
+      "\n\017base/resp.proto\032\017util/util.proto\032 igno" +
+      "re_two/ignore_test_two.proto\"`\n\014BaseResp" +
+      "onse\022\022\n\nerror_code\030\001 \001(\005\022\032\n\007message\030\002 \001(" +
+      "\0132\t.CMessage\022 \n\010test_two\030\003 \001(\0132\016.IgnoreT" +
+      "woTestB&\n\023com.test.proto.baseB\tRespProto" +
+      "\242\002\003GBP"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -622,14 +814,16 @@ public final class RespProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.test.proto.util.UtilProto.getDescriptor(),
+          com.test.proto.ignoreTwo.IgnoreTestTwoProto.getDescriptor(),
         }, assigner);
     internal_static_BaseResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_BaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_BaseResponse_descriptor,
-        new java.lang.String[] { "ErrorCode", "Message", });
+        new java.lang.String[] { "ErrorCode", "Message", "TestTwo", });
     com.test.proto.util.UtilProto.getDescriptor();
+    com.test.proto.ignoreTwo.IgnoreTestTwoProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
